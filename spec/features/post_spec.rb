@@ -13,13 +13,14 @@ describe "navigate" do
   end
 
   describe "Creation" do
-    it "has a form that can be reached" do
+    before do
       visit new_post_path
+    end
+    it "has a form that can be reached" do
       expect(page.status_code).to eq 200
     end
 
     it "can be created from form page" do
-      visit new_post_path
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "some rationale"
 
