@@ -5,8 +5,12 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'capybara/rails'
 
 ActiveRecord::Migration.maintain_test_schema!
+
+include Warden::Test::Helpers
+Warden.test_mode!
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
@@ -17,6 +21,7 @@ RSpec.configure do |config|
   config.before(:each, :js => true) { DatabaseCleaner.strategy = :truncation }
   config.before(:each) { DatabaseCleaner.start }
   config.after(:each) { DatabaseCleaner.clean }
+  #config.after(:each) { Warden.test_reset! }
   config.infer_spec_type_from_file_location!
 
   # Filter lines from Rails gems in backtraces.

@@ -25,3 +25,6 @@
 * Herramientas de prueba
   * Rspec
   * Capybara
+
+## TODO refactor
+* Asociacion usuario a post
