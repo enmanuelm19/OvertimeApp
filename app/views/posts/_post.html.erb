@@ -1,0 +1,14 @@
+<tr>
+  <td>
+      <%= post.id %>
+  </td>
+  <td>
+      <%= post.date.to_formatted_s(:long) %>
+  </td>
+  <td>
+      <%= truncate(post.rationale) %>
+  </td>
+  <td>
+      <%= post.user.first_name %>
+  </td>
+</tr>
