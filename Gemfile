@@ -14,6 +14,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'thor', '0.19.1'
 gem 'devise', '~> 3.5', '>= 3.5.6'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
