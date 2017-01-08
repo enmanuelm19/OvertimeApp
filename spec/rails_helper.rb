@@ -23,6 +23,7 @@ RSpec.configure do |config|
   config.after(:each) { DatabaseCleaner.clean }
   #config.after(:each) { Warden.test_reset! }
   config.infer_spec_type_from_file_location!
+  config.include FactoryGirl::Syntax::Methods
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
