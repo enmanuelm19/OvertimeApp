@@ -24,6 +24,14 @@ describe "navigate" do
     end
   end
 
+  describe "new" do
+    it "has a link from homepage" do
+      visit root_path
+      click_link("new_post_nav")
+      expect(page.status_code).to eq(200) 
+    end
+  end
+
 
   describe "Creation" do
     before do
@@ -72,7 +80,7 @@ describe "navigate" do
       fill_in 'post[rationale]', with: "edited content"
 
       click_on "Save"
-      expect(page).to have_content("edited content") 
+      expect(page).to have_content("edited content")
     end
   end
 end
