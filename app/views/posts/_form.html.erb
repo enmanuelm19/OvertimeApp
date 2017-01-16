@@ -2,6 +2,11 @@
     <div class="row">
         <div class="col-md-12">
             <%= form_for @post do |f| %>
+            <% if @post.errors.any? %>
+            <% @post.errors.full_messages.each do |e| %>
+              <%= js add_gritter(e, title: "Overtime app notification", sticky: false, time: 4000) %>
+            <% end %>
+            <% end %>
             <div class="form-group row">
               <%= f.label :date, class: "col-sm-2 control-label" %>
               <div class="col-sm-10">

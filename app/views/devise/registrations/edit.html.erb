@@ -5,7 +5,8 @@
   <div class="row">
     <div class="col-sm-12">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= devise_error_messages! %>
+
+        <%= js add_gritter(devise_error_messages!, title: "Overtime app notification", sticky: false, time: 4000) %>
 
         <div class="row">
           <div class="form-group">
