@@ -15,7 +15,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'thor', '0.19.1'
 gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+# for growl notifications
 gem "gritter", "1.2.0"
+
+# for administrate dashboard style
+gem 'administrate', '~>0.2.2'
+gem 'bourbon'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
