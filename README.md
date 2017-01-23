@@ -28,3 +28,4 @@
 
 ## TODO refactor
 * Asociacion usuario a post
+* Refactor post/_form for role authorization
