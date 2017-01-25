@@ -72,7 +72,7 @@ describe "navigate" do
 
   describe "Edit" do
     before do
-      @post = FactoryGirl.create(:post)
+      @post = FactoryGirl.create(:post, user_id: @user.id)
     end
 
 
@@ -89,6 +89,15 @@ describe "navigate" do
 
       click_on "Save"
       expect(page).to have_content("edited content")
+    end
+
+    it "can not be edited by no authorized user" do
+      logout(:user)
+      @non_authorize_user = FactoryGirl.create(:non_authorize_user)
+      login_as(@non_authorize_user, :scope => :user)
+
+      visit edit_post_path(@post)
+      expect(current_path).to eq(root_path)
     end
   end
 end

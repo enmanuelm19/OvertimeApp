@@ -8,7 +8,7 @@ describe "navigate" do
 
   describe "edit" do
     before do
-      @post = Post.create(date: Date.today, rationale: "Rationale")
+      @post = FactoryGirl.create(:post)
       visit edit_post_path(@post)
     end
 
@@ -26,7 +26,7 @@ describe "navigate" do
 
       visit edit_post_path(@post)
 
-      expect(page).to_not have_content('Approved') 
+      expect(page).to_not have_content('Approved')
     end
   end
 end
