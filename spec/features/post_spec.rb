@@ -1,16 +1,19 @@
 require "rails_helper"
 
 describe "navigate" do
+  let(:user) { FactoryGirl.create(:user) }
+
+  let(:post) do
+    Post.create(date: Date.today, rationale: "Rationale", user_id: user.id)
+  end
+
   before do
-    @user = FactoryGirl.create(:user)
-    login_as(@user, :scope => :user)
+    login_as(user, :scope => :user)
   end
 
 
   describe "index" do
     before do
-      post1 = FactoryGirl.create(:post, user_id: @user.id)
-      post2 = FactoryGirl.create(:second_post, user_id: @user.id)
       visit posts_path
     end
     it "can be reached" do
@@ -20,12 +23,12 @@ describe "navigate" do
       expect(page).to have_content(/Posts/)
     end
     it "has a list of posts" do
-      expect(page).to have_content(/rationale|content/)
+      post1 = FactoryGirl.build_stubbed(:post)
+      post2 = FactoryGirl.build_stubbed(:second_post)
+      visit posts_path
+      expect(page).to have_content(/Rationale|content/)
     end
     it "has a scope so that only post creator can see their post" do
-       post1 = Post.create(date: Date.today, rationale: "asdf", user_id: @user.id)
-       post2 = Post.create(date: Date.today, rationale: "asdf", user_id: @user.id)
-
        other_user = User.create(first_name: "No", last_name: "No", email: "no@no.com", password: "12345678", password_confirmation: "12345678")
        post_from_other_user = Post.create(date: Date.today, rationale: "This shouldn't be seen", user_id: other_user.id)
        visit posts_path
@@ -43,9 +46,12 @@ describe "navigate" do
 
   describe "delete" do
     it "can be deleted" do
-      post = FactoryGirl.create(:post, user_id: @user.id)
+      logout(:user)
+      delete_user = FactoryGirl.create(:user)
+      login_as(delete_user)
+      post_to_delete = Post.create(date: Date.today, rationale: "asdf", user_id: delete_user.id)
       visit posts_path
-      click_link("delete_#{post.id}_index")
+      click_link("delete_#{post_to_delete.id}_index")
       expect(page.status_code).to eq(200)
     end
   end
@@ -81,7 +87,7 @@ describe "navigate" do
 
   describe "Edit" do
     before do
-      @post = FactoryGirl.create(:post, user_id: @user.id)
+      @post = FactoryGirl.create(:post, user_id: user.id)
     end
 
 
