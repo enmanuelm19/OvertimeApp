@@ -23,8 +23,11 @@ describe "navigate" do
       expect(page).to have_content(/rationale|content/)
     end
     it "has a scope so that only post creator can see their post" do
-       non_authorize = User.create(first_name: "No", last_name: "No", email: "no@no.com", password: "12345678", password_confirmation: "12345678")
-       post_from_other_user = Post.create(date: Date.today, rationale: "This shouldn't be seen", user_id: non_authorize.id)
+       post1 = Post.create(date: Date.today, rationale: "asdf", user_id: @user.id)
+       post2 = Post.create(date: Date.today, rationale: "asdf", user_id: @user.id)
+
+       other_user = User.create(first_name: "No", last_name: "No", email: "no@no.com", password: "12345678", password_confirmation: "12345678")
+       post_from_other_user = Post.create(date: Date.today, rationale: "This shouldn't be seen", user_id: other_user.id)
        visit posts_path
        expect(page).to_not have_content(/This shouldn't be seen/)
     end
