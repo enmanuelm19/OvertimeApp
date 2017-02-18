@@ -108,9 +108,8 @@ describe "navigate" do
 
     it "can not be edited by no authorized user" do
       logout(:user)
-      @non_authorized_user = FactoryGirl.create(:non_authorized_user)
-      login_as(@non_authorized_user, :scope => :user)
-
+      non_authorized_user = FactoryGirl.create(:non_authorized_user)
+      login_as(non_authorized_user)
       visit edit_post_path(@post)
       expect(current_path).to eq(root_path)
     end
