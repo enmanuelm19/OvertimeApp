@@ -23,6 +23,7 @@ gem 'administrate', '~>0.2.2'
 gem 'bourbon'
 
 gem 'pundit'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'
