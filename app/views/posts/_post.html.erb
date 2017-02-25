@@ -9,7 +9,7 @@
       <%= post.date.to_formatted_s(:long) %>
   </td>
   <td>
-      <%= truncate(post.rationale) %>
+      <%= link_to truncate(post.rationale), post %>
   </td>
   <td>
       <%= post.user.full_name %>
