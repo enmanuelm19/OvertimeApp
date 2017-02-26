@@ -24,6 +24,8 @@ gem 'bourbon'
 
 gem 'pundit'
 gem 'puma'
+gem 'twilio-ruby'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 group :development, :test do
   gem 'byebug'
