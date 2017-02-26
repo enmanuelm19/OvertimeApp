@@ -29,7 +29,7 @@ describe "navigate" do
       expect(page).to have_content(/Rationale|content/)
     end
     it "has a scope so that only post creator can see their post" do
-       other_user = User.create(first_name: "No", last_name: "No", email: "no@no.com", password: "12345678", password_confirmation: "12345678")
+       other_user = User.create(first_name: "No", last_name: "No", email: "no@no.com", password: "12345678", password_confirmation: "12345678", phone: "+584145607888")
        post_from_other_user = Post.create(date: Date.today, rationale: "This shouldn't be seen", user_id: other_user.id, overtime_request: 3.5)
        visit posts_path
        expect(page).to_not have_content(/This shouldn't be seen/)
