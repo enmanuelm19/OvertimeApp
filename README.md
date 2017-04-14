@@ -9,7 +9,7 @@
 
 ## Caracteristicas
 * Flujo de trabajo (aprovacion o desaprobacion)
-* Servicio de mensajeria (twilio api)
+* Servicio de mensajeria (twilio api) -> integrar con el scheduler de heroku
 * Panel administrativo (Administrate)
 * Servicio correo
 * Auditoria

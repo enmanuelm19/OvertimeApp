@@ -5,7 +5,6 @@ namespace :notification do
     # 2. Iterate over all employees
     # 3. Skip admin users
     # 4. Send message that has instructions and a link to log time
-    # 5. Do validations for phone number
     puts "I'm in rake task"
   end
 
