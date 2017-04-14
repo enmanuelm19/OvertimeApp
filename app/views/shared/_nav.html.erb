@@ -9,6 +9,10 @@
     <li class="<%= active?(posts_path) %>">
         <%= link_to "TimeEntries", posts_path %>
     </li>
+
+    <!-- TODO: possibly refactor -->
+    <%= render 'shared/audit_log_tab' if policy(AuditLog).index? %>
+
     <li class="<%= active?(new_post_path) %>">
         <%= link_to "New entry", new_post_path , id: "new_post_nav" %>
     </li>
