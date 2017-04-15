@@ -27,6 +27,8 @@ gem 'puma'
 gem 'twilio-ruby'
 gem 'dotenv-rails', :groups => [:development, :test]
 
+gem 'kaminari', '~>0.17.0'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
