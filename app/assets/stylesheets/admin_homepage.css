@@ -9,10 +9,14 @@
 }
 
 .homepage-block{
-    margin: 15px;
+    margin: 15px 45px 15px 45px;
     padding: 15px;
     background-color: #1D3C91;
     color: white;-webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
+}
+
+.pending-details{
+    font-weight: 900;
 }
