@@ -1,18 +1,18 @@
 <tr>
   <td>
-      <%= post.id %>
+    <%= post.id %>
   </td>
   <td>
     <%= post.overtime_request %>
   </td>
   <td>
-      <%= post.date.to_formatted_s(:long) %>
+    <%= post.date.to_formatted_s(:long) %>
   </td>
   <td>
-      <%= link_to truncate(post.rationale), post %>
+    <%= link_to truncate(post.rationale), post %>
   </td>
   <td>
-      <%= post.user.full_name %>
+    <%= post.user.full_name %>
   </td>
   <td>
     <%= status_label post.status %>
